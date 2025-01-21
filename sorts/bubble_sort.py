@@ -12,6 +12,19 @@ def bubble(array: list) -> list:
             return array
 
 
+def recursive_bubble(array):
+    is_swapped = False
+    for i in range(len(array) - 1):
+        if array[i] > array[i+1]:
+            array[i], array[i+1] = array[i + 1], array[i]
+            is_swapped = True
+    if is_swapped:
+        return recursive_bubble(array)
+    else:
+        return array
+
+
 if __name__ == '__main__':
     array = random.choices(range(1, 101), k=10)
-    assert bubble(array) == sorted(array)
+    print(recursive_bubble(array))
+    assert recursive_bubble(array) == sorted(array)
