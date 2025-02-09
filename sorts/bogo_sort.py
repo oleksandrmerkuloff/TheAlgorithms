@@ -15,7 +15,7 @@ def bogo(array):
 
 
 if __name__ == '__main__':
-    array = random.choices(range(1, 101), k=10)
+    array = random.choices(range(1, 101), k=100)
     print(array)
     started = time.time()
     print(bogo(array))
