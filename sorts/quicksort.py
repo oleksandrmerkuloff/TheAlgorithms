@@ -1,21 +1,16 @@
 import random
 
 
-def quick(array):
-    if len(array) <= 1:
+def quicksort(array: list) -> list:
+    if len(array) < 2:
         return array
-    middle = len(array) // 2
-    pivot = array.pop(middle)
-    lower, higher = [], []
-    for num in range(len(array)):
-        if array[num] >= pivot:
-            higher.append(array[num])
-        else:
-            lower.append(array[num])
-    return quick(lower) + [pivot] + quick(higher)
+    pivot = array.pop(len(array) // 2)
+    smaller = [x for x in array if x <= pivot]
+    bigger = [x for x in array if x > pivot]
+    return quicksort(smaller) + [pivot] + quicksort(bigger)
 
 
 if __name__ == '__main__':
     array = random.choices(range(1, 101), k=10)
     print(array)
-    print(quick(array))
+    print(quicksort(array))

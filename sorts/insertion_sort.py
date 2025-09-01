@@ -1,7 +1,7 @@
 import random
 
 
-def insertion_sort(array):
+def insertion_sort(array: list) -> list:
     for i in range(1, len(array)):
         key = array[i]
         j = i - 1
